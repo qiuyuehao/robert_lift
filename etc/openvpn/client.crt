@@ -1,0 +1,99 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 2 (0x2)
+    Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C=US, ST=CA, L=EastVale, O=Fort-Funston, OU=MyOrganizationalUnit, CN=Fort-Funston CA/name=server/emailAddress=robert.x.liang@gmail.com
+        Validity
+            Not Before: May 21 02:45:56 2017 GMT
+            Not After : May 19 02:45:56 2027 GMT
+        Subject: C=US, ST=CA, L=EastVale, O=Fort-Funston, OU=MyOrganizationalUnit, CN=shengdawei1/name=server/emailAddress=robert.x.liang@gmail.com
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Modulus:
+                    00:b2:27:78:30:d6:35:42:e7:48:c4:cd:8c:61:2e:
+                    4e:20:a1:a9:a2:75:80:8d:6b:96:97:92:76:03:44:
+                    0e:46:a4:46:90:e0:36:d4:5d:3e:83:39:4c:21:47:
+                    b2:ec:17:4c:b8:62:b8:c8:f6:8a:65:51:3d:57:57:
+                    61:e4:89:0a:24:36:10:c3:2d:f7:27:db:27:ba:dc:
+                    66:66:1c:3d:05:1b:d8:0d:e2:92:e6:ae:b1:27:4d:
+                    b4:79:07:c7:96:47:46:6f:f9:73:a5:68:54:6e:3d:
+                    bc:4a:b4:c2:cc:9b:e8:8a:e5:e5:c4:44:f4:82:18:
+                    1c:ce:e1:9a:a4:db:a3:23:a0:47:ab:47:fe:1c:36:
+                    82:52:d7:78:9f:9c:4e:e9:24:e9:ae:48:b6:1c:f4:
+                    a0:90:58:83:b5:6e:7e:a9:56:f3:7e:c3:be:1f:4e:
+                    4d:f4:30:e9:5f:48:ac:8a:36:2d:67:8c:8d:3a:df:
+                    96:d4:93:93:61:1f:af:f3:cb:50:61:22:5b:eb:03:
+                    cf:48:a2:bd:84:96:31:61:a5:c1:82:79:98:18:8c:
+                    b7:2f:7f:a7:9e:d8:c6:6e:26:b9:9b:9f:84:e0:fb:
+                    58:0b:40:47:25:1e:10:66:96:9c:96:38:d3:35:a7:
+                    76:0b:a8:fe:13:81:e7:16:1e:88:5f:5b:cf:64:d3:
+                    65:c9
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Basic Constraints: 
+                CA:FALSE
+            Netscape Comment: 
+                Easy-RSA Generated Certificate
+            X509v3 Subject Key Identifier: 
+                6C:C9:F0:DA:BC:E3:3E:99:C6:D2:FD:35:45:D8:E8:93:46:3D:78:59
+            X509v3 Authority Key Identifier: 
+                keyid:9D:84:2D:80:C2:61:CC:31:2E:59:B6:FE:63:11:3D:FF:11:D9:14:40
+                DirName:/C=US/ST=CA/L=EastVale/O=Fort-Funston/OU=MyOrganizationalUnit/CN=Fort-Funston CA/name=server/emailAddress=robert.x.liang@gmail.com
+                serial:E0:3D:FB:9A:06:C8:C4:67
+
+            X509v3 Extended Key Usage: 
+                TLS Web Client Authentication
+            X509v3 Key Usage: 
+                Digital Signature
+            X509v3 Subject Alternative Name: 
+                DNS:shengdawei1
+    Signature Algorithm: sha256WithRSAEncryption
+         11:a3:b7:0c:f8:4b:f0:e4:e7:d3:37:60:f9:a8:1e:1f:34:86:
+         a3:97:33:e8:47:77:0d:41:30:25:3c:14:b7:6e:aa:59:8e:79:
+         50:0e:64:6e:0d:f0:11:58:5a:52:b3:63:fc:9c:35:28:30:83:
+         4a:19:f8:33:c3:c4:a2:36:d4:fc:e5:99:44:c8:28:ee:ad:b9:
+         24:a0:4f:90:3c:06:40:e2:97:cc:bb:52:37:7b:15:d8:c7:6c:
+         a7:e9:28:fc:aa:0b:80:99:15:a6:dc:94:46:bd:b5:bd:db:a6:
+         91:87:fd:8d:63:3e:4d:b2:08:34:6d:26:e2:8f:3d:ec:95:68:
+         3c:a5:1d:c8:b4:fd:bd:26:17:7c:bc:5e:e0:9c:bd:08:90:be:
+         a2:f9:44:cc:9f:a3:d1:9b:d4:5b:96:52:ab:3f:c7:3f:52:69:
+         ab:15:5a:bc:2a:57:39:48:8e:31:e3:e3:7f:c6:27:b3:f6:8d:
+         d3:21:cd:22:79:30:75:ef:4a:58:e8:d6:2d:d4:ac:39:ee:b8:
+         bd:fe:2d:de:d4:44:3d:f5:c9:c8:d7:82:2e:de:9a:d5:db:a4:
+         1f:0c:c1:11:0e:bb:f7:a3:e8:ad:2c:9c:75:2e:db:17:66:aa:
+         8a:d7:42:fc:8e:f8:6d:0e:f7:1a:4f:07:d4:43:7d:90:c2:44:
+         bb:f6:3f:13
+-----BEGIN CERTIFICATE-----
+MIIFbzCCBFegAwIBAgIBAjANBgkqhkiG9w0BAQsFADCBtzELMAkGA1UEBhMCVVMx
+CzAJBgNVBAgTAkNBMREwDwYDVQQHEwhFYXN0VmFsZTEVMBMGA1UEChMMRm9ydC1G
+dW5zdG9uMR0wGwYDVQQLExRNeU9yZ2FuaXphdGlvbmFsVW5pdDEYMBYGA1UEAxMP
+Rm9ydC1GdW5zdG9uIENBMQ8wDQYDVQQpEwZzZXJ2ZXIxJzAlBgkqhkiG9w0BCQEW
+GHJvYmVydC54LmxpYW5nQGdtYWlsLmNvbTAeFw0xNzA1MjEwMjQ1NTZaFw0yNzA1
+MTkwMjQ1NTZaMIGzMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExETAPBgNVBAcT
+CEVhc3RWYWxlMRUwEwYDVQQKEwxGb3J0LUZ1bnN0b24xHTAbBgNVBAsTFE15T3Jn
+YW5pemF0aW9uYWxVbml0MRQwEgYDVQQDEwtzaGVuZ2Rhd2VpMTEPMA0GA1UEKRMG
+c2VydmVyMScwJQYJKoZIhvcNAQkBFhhyb2JlcnQueC5saWFuZ0BnbWFpbC5jb20w
+ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCyJ3gw1jVC50jEzYxhLk4g
+oamidYCNa5aXknYDRA5GpEaQ4DbUXT6DOUwhR7LsF0y4YrjI9oplUT1XV2HkiQok
+NhDDLfcn2ye63GZmHD0FG9gN4pLmrrEnTbR5B8eWR0Zv+XOlaFRuPbxKtMLMm+iK
+5eXERPSCGBzO4Zqk26MjoEerR/4cNoJS13ifnE7pJOmuSLYc9KCQWIO1bn6pVvN+
+w74fTk30MOlfSKyKNi1njI0635bUk5NhH6/zy1BhIlvrA89Ior2EljFhpcGCeZgY
+jLcvf6ee2MZuJrmbn4Tg+1gLQEclHhBmlpyWONM1p3YLqP4TgecWHohfW89k02XJ
+AgMBAAGjggGGMIIBgjAJBgNVHRMEAjAAMC0GCWCGSAGG+EIBDQQgFh5FYXN5LVJT
+QSBHZW5lcmF0ZWQgQ2VydGlmaWNhdGUwHQYDVR0OBBYEFGzJ8Nq84z6ZxtL9NUXY
+6JNGPXhZMIHsBgNVHSMEgeQwgeGAFJ2ELYDCYcwxLlm2/mMRPf8R2RRAoYG9pIG6
+MIG3MQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExETAPBgNVBAcTCEVhc3RWYWxl
+MRUwEwYDVQQKEwxGb3J0LUZ1bnN0b24xHTAbBgNVBAsTFE15T3JnYW5pemF0aW9u
+YWxVbml0MRgwFgYDVQQDEw9Gb3J0LUZ1bnN0b24gQ0ExDzANBgNVBCkTBnNlcnZl
+cjEnMCUGCSqGSIb3DQEJARYYcm9iZXJ0LngubGlhbmdAZ21haWwuY29tggkA4D37
+mgbIxGcwEwYDVR0lBAwwCgYIKwYBBQUHAwIwCwYDVR0PBAQDAgeAMBYGA1UdEQQP
+MA2CC3NoZW5nZGF3ZWkxMA0GCSqGSIb3DQEBCwUAA4IBAQARo7cM+Evw5OfTN2D5
+qB4fNIajlzPoR3cNQTAlPBS3bqpZjnlQDmRuDfARWFpSs2P8nDUoMINKGfgzw8Si
+NtT85ZlEyCjurbkkoE+QPAZA4pfMu1I3exXYx2yn6Sj8qguAmRWm3JRGvbW926aR
+h/2NYz5Nsgg0bSbijz3slWg8pR3ItP29Jhd8vF7gnL0IkL6i+UTMn6PRm9RbllKr
+P8c/UmmrFVq8Klc5SI4x4+N/xiez9o3TIc0ieTB170pY6NYt1Kw57ri9/i3e1EQ9
+9cnI14Iu3prV26QfDMERDrv3o+itLJx1LtsXZqqK10L8jvhtDvcaTwfUQ32QwkS7
+9j8T
+-----END CERTIFICATE-----
