@@ -1,0 +1,91 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>电梯监控主机</title>
+<script src="js/jquery-1.8.0.min.js"></script> 
+<link href="menu.css" rel="stylesheet" type="text/css" />
+</head>
+
+<style type="text/css">
+	input {  
+			width: 200px; 
+			height: 25px;
+        }
+	select {  
+			width: 200px; 
+        }
+</style>
+<body>
+<div style="width:800px; height:30px; line-height:30px; text-align:left; font-family:微软雅黑; font-size:16px; background-color:#EAEAEA; margin-left:1px;">楼层设置<div>
+<div style="width:800px;  text-align:left; font-family:微软雅黑; font-size:16px; background-color:#F7F7F7; margin-left:1px;">
+	
+	<fieldset style="border-color:#E2DED6;border-width:1px;border-style:Solid; text-align:right;">
+		<legend style="color:#333333;font-size:16px; font-family:微软雅黑;  text-align:left;">
+			
+		</legend>
+		<div style="margin:0; margin-right:400px;">
+			电梯总层数 ：<input id="total_floor"></input>
+		</div>
+		<div style="margin:0; margin-right:400px;">
+			电梯物理层 ：<input id="phy_floor"></input>
+		</div>
+		<div style="margin:0; margin-right:400px;">
+			电梯显示层 ：<input id="display_floor" value="1" enable=false></input>
+		</div>
+		<input  style="margin-left:30px; margin-top: 15px; width:80px; float:right;"  type="button"  onClick="save_param()"  value="保存"    name="saveParam"/>
+		<input  style="margin-left:30px; margin-top: 15px; width:80px; float:right;"  type="button"  onClick="load_param()" value="读取"    name="readParam"/>
+	</fieldset>
+	
+	
+</div>
+</body>
+<html>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  load_param();
+  //load_sensor_stat();
+});
+
+function load_param(){
+	//alert(1);
+	$.getJSON("goform/goahead_load_floor_param", function(result){
+		//alert(result);
+		$("#total_floor").val(result.total_floor);
+		$("#phy_floor").val(result.phy_floor);
+		$("#display_floor").val(result.display_floor);
+	});
+}
+
+function save_param(){
+	if($("#total_floor").val() < 2)
+	{
+		alert("maybe not building！");
+		return;
+	}
+	if($("#total_floor").val() < $("#phy_floor").val())
+	{
+		alert("maybe not building！");
+		return;
+	}
+	if($("#total_floor").val() < $("#display_floor").val())
+	{
+		alert("maybe not building！");
+		return;
+	}
+	var data = "";
+
+	data += ("total_floor=" + $("#total_floor").val()); 
+	
+	data += ("&phy_floor=" + $("#phy_floor").val());
+	data += ("&display_floor=" + $("#display_floor").val());
+	//alert(data);
+	$.post("goform/goahead_save_floor_param", data, function(result){
+		if(isContains(result, "success"))
+			alert("保存成功!");
+		else
+			alert("未知错误!");
+	});
+}
+
+</script>

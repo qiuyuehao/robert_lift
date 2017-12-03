@@ -1,0 +1,8 @@
+#!/bin/sh
+#
+#echo "add..."
+echo "start sensorMonitor system..."
+
+cd /home/root/work
+./run_sys.sh &
+cd /

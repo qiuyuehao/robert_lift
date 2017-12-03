@@ -1,0 +1,187 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>电梯监控主机</title>
+<script src="js/jquery-1.8.0.min.js"></script> 
+<link href="menu.css" rel="stylesheet" type="text/css" />
+</head>
+
+<style type="text/css">
+	input {  
+			width: 200px; 
+			height: 25px;
+        }
+	select {  
+			width: 200px; 
+        }
+</style>
+<body>
+
+
+<div style="width:800px; height:30px; line-height:30px; text-align:left; font-family:微软雅黑; font-size:16px; background-color:#EAEAEA; margin-left:1px;">传感器配置</div>
+<div style="width:800px; text-align:left;  font-family:微软雅黑; font-size:16px; background-color:#F7F7F7; margin-left:1px;">
+
+		<div style="text-align:left;margin:0 auto; margin-left:10px; width:800px;height:30px;  line-height:30px; ">
+			<input style="width:20px;" id="sensor_0" type="checkbox" value="" />
+			启用&nbsp;&nbsp;红外红探测器
+			<a style="float:right; margin-right:450px; height:20px;" id="infraredV">状态：xx</a>
+		</div>
+
+		<div style="text-align:left;margin:0; margin-left:10px;width:800px;height:30px; line-height:30px;  ">
+			<input style="width:20px;" id="sensor_1" type="checkbox" value="" />
+			<font style="text-align:center; height:20px;line-height:20px;">启用&nbsp;&nbsp;磁性接近开关</font>
+			<a style="float:right; margin-right:450px; height:20px;" id="magnetic">状态：xx</a>
+		</div>
+		<div style="text-align:left;margin:0; margin-left:10px;width:800px;height:30px; line-height:30px;  ">
+			<input style="width:20px;" id="sensor_2" type="checkbox" value="" />
+			<font style="text-align:center; height:20px;line-height:20px;">启用&nbsp;&nbsp;漫返射光电开关</font>
+			<a style="float:right; margin-right:450px; height:20px;" id="diffusereflection">状态：xx</a>
+		</div>
+		<div style="text-align:left;margin:0; margin-left:10px;width:800px;height:30px; line-height:30px;  ">
+			<input style="width:20px;" id="sensor_3" type="checkbox" value="" />
+			启用&nbsp;&nbsp;加速度传感器
+			<a style="float:right; margin-right:450px; height:20px;" id="axis">状态：xx</a>
+		</div>
+		<div style="text-align:left;margin:0; margin-left:10px;width:800px;height:30px; line-height:30px;  ">
+			<input style="width:20px;" id="sensor_4" type="checkbox" value="" />
+			启用&nbsp;&nbsp;U型光电传感器：
+			<a style="float:right; margin-right:450px; height:20px;" id="direction">状态：xx</a>
+		</div>
+
+	<hr style="width:800px;">
+	<div style="margin:0px; ">设置定时上传时间：<input value="10" id="time_space" style="width:60px;"></input>&nbsp;秒</div>
+	<fieldset style="border-color:#E2DED6;border-width:1px;border-style:Solid; text-align:right;">
+		<legend style="color:#333333;font-size:16px; font-family:微软雅黑;  text-align:left;">
+			服务器设置
+		</legend>
+		<div style="margin:0; margin-right:400px; margin-top:10px;">
+			服务器地址：
+			<input id="mqtt_server_addr"></input>
+		</div>
+		<div style="margin:0; margin-right:400px; margin-top:10px;">
+			服务器端口：<input id="mqtt_server_port"></input>
+		</div>
+	</fieldset>
+	<fieldset style="border-color:#E2DED6;border-width:1px;border-style:Solid; text-align:right;">
+		<legend style="color:#333333;font-size:16px; font-family:微软雅黑;  text-align:left;">
+			设备ID
+		</legend>
+		<div style="margin:0; margin-right:400px; margin-top:10px;">
+			设备ID：
+			<input id="mqtt_id"></input>
+		</div>
+	</fieldset>
+	<input  style="margin-left:30px; margin-top: 15px; width:80px; float:right;"  type="button"  onClick="save_param()"  value="保存"    name="saveParam"/>
+	<input  style="margin-left:30px; margin-top: 15px; width:80px; float:right;"  type="button"  onClick="load_param()" value="读取"    name="readParam"/>
+	
+</div>
+</body>
+<html>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  load_param();
+  load_sensor_stat();
+});
+
+function unicode2Char(str) {
+	return (str.replace(/\\/g, "%"));
+}
+
+function load_sensor_stat(){
+	var str = '{tag:1}';
+	var obj = JSON.parse(str);
+
+	$("#infraredV").html("qwe:" + obj.tag);
+	$.getJSON("sensorValue.json", function(result){
+		//alert(result.device_net_type);
+		//alert(result);
+		$("#infraredV").val("状态:"+result.infraredV);
+		$("#magnetic").val("状态:"+result.magnetic);
+		$("#diffusereflection").val("状态:"+result.diffusereflection);
+		$("#direction").val("状态:"+result.direction);
+		$("#axis").val("状态:x:"+result.x-Axis+"  y:"+result.y-Axis+"  z:"+result.z-Axis+"  ");
+	});
+}
+function load_param(){
+	//alert(1);
+	$.getJSON("goform/goahead_load_sensor_param", function(result){
+		//alert(result);
+		$('#sensor_0').attr("checked", false);
+		$('#sensor_1').attr("checked", false);
+		$('#sensor_2').attr("checked", false);
+		$('#sensor_3').attr("checked", false);
+		$('#sensor_4').attr("checked", false);
+		if( result.sensor_0 == "1" ){
+			$('#sensor_0').attr("checked", true);
+		}
+		if( result.sensor_1 == "1" ){
+			$('#sensor_1').attr("checked", true);
+		}
+		if( result.sensor_2 == "1" ){
+			$('#sensor_2').attr("checked", true);
+		}
+		if( result.sensor_3 == "1" ){
+			$('#sensor_3').attr("checked", true);
+		}
+		if( result.sensor_4 == "1" ){
+			$('#sensor_4').attr("checked", true);
+		}
+		
+		
+		$("#time_space").val(result.time_space);
+		$("#mqtt_server_addr").val(result.mqtt_server_addr);
+		$("#mqtt_server_port").val(result.mqtt_server_port);
+		$("#mqtt_id").val(result.mqtt_id);
+	});
+}
+
+function save_param(){
+	var data = "";
+	if($('#sensor_0').is(':checked')) {
+		data += "sensor_0=1&";
+	}
+	else
+		data += "sensor_0=0&";
+	if($('#sensor_1').is(':checked')) {
+		data += "sensor_1=1&";
+	}
+	else
+		data += "sensor_1=0&";
+	if($('#sensor_2').is(':checked')) {
+		data += "sensor_2=1&";
+	}
+	else
+		data += "sensor_2=0&";
+	if($('#sensor_3').is(':checked')) {
+		data += "sensor_3=1&";
+	}
+	else
+		data += "sensor_3=0&";
+	if($('#sensor_4').is(':checked')) {
+		data += "sensor_4=1&";
+	}
+	else
+		data += "sensor_4=0&";
+	//return;
+	data += ("time_space=" + $("#time_space").val()); 
+	
+	data += ("&mqtt_server_addr=" + $("#mqtt_server_addr").val());
+	data += ("&mqtt_server_port=" + $("#mqtt_server_port").val());
+	
+	data += ("&mqtt_id=" + $("#mqtt_id").val());
+	
+	//alert(data);
+	$.post("goform/goahead_save_sensor_param", data, function(result){
+		if(isContains(result, "success"))
+			alert("保存成功!");
+		else
+			alert("未知错误!");
+	});
+}
+
+function isContains(str, substr) {
+     return str.indexOf(substr) >= 0;
+ }
+ 
+</script>

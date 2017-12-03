@@ -1,0 +1,41 @@
+﻿#        安装方法   (中国区)
+
+
+
+
+1、拷贝时区信息文件到/etc目录
+
+	cp ./zoneinfo/Shanghai /etc/localtime
+
+
+
+2、在/home/root目录下创建work目录，将安装包里面的文件拷贝到work下面。
+
+
+
+
+3、在/etc/rc5.d目录下的S99sztenv文件里加入如下内容
+
+#!/bin/sh
+
+echo "start sensorMonitor system..."
+
+cd /home/root/work
+./run_sys.sh &
+cd /
+
+
+4、重起设备。
+
+
+
+
+
+
+
+
+#      默认信息
+
+
+
+      设备默认使用RJ45接口联网，IP为192.168.1.100，用户名admin，密码admin12345
