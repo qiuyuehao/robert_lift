@@ -1,0 +1,23 @@
+setenv ethaddr 00:11:22:33:44:55
+setenv ipaddr 192.168.1.100
+setenv serverip 192.168.1.123
+saveenv
+
+tftp 0x80200000 uImage_0613
+nand erase 0x280000 0x500000
+nand write 0x80200000 0x280000 0x500000
+
+tftp 0x80200000 ubi_ori.img
+nand erase 0x780000 F880000
+nand write 0x80200000 0x00780000 0x19e0000(ubi.img's size)
+
+mv /usr/sbin/boa /usr/sbin/boa.bak 
+mqtt_id
+mount -t nfs -o nolock 192.168.1.123:/home/qyh/nfs-root /mnt/nfs
+route add -net 0.0.0.0 netmask 0.0.0.0 gw 192.168.1.1 dev wlan0
+route del -net 0.0.0.0 netmask 0.0.0.0 gw 192.168.1.1 dev eth0
+route del -net 192.168.1.0 netmask 255.255.255.0 gw 0.0.0.0 dev eth0
+route add -net 192.168.1.0 netmask 255.255.255.0 gw 192.168.1.1 dev wlan0
+route del -net 192.168.1.0 netmask 255.255.255.0 gw 0.0.0.0 dev wlan0
+mount -t nfs -o nolock 192.168.1.206:/home/qyh/nfs-root /mnt/nfs
+route add -net 192.168.1.64 netmask 255.255.255.255 gw 192.168.2.100 dev eth1
