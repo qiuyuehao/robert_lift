@@ -11,6 +11,16 @@ done
 echo "connnect to wan now"
 echo $wan_ok
 
+#add for video sensor
+echo 1 > /proc/sys/net/ipv4/ip_forward
+iptables -F
+iptables -P INPUT ACCEPT
+iptables -P FORWARD ACCEPT
+iptables -P OUTPUT ACCEPT
+iptables -t nat -A POSTROUTING -s 192.168.2.0/24  -o wwan0 -j MASQUERADE
+#add for video sensor
+
+
 ntpdate ntp1.aliyun.com
 
 ntpdate ntp1.aliyun.com
